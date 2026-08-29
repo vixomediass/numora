@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" role="img" aria-label="Bote de Numora Creatine Monohydrate">
+  <defs>
+    <linearGradient id="cBody" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#20242A"/>
+      <stop offset=".2" stop-color="#3A4049"/>
+      <stop offset=".78" stop-color="#191D22"/>
+      <stop offset="1" stop-color="#0B0D10"/>
+    </linearGradient>
+    <linearGradient id="cLid" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#AEDA36"/>
+      <stop offset=".22" stop-color="#D8FF6B"/>
+      <stop offset=".8" stop-color="#BCE84A"/>
+      <stop offset="1" stop-color="#93BC28"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Tapa -->
+  <rect x="86" y="66" width="128" height="42" rx="10" fill="url(#cLid)"/>
+  <rect x="94" y="75" width="112" height="3" rx="1.5" fill="#ffffff" opacity=".45"/>
+
+  <!-- Cuerpo (bote más bajo y ancho: 300 g) -->
+  <rect x="70" y="102" width="160" height="230" rx="24" fill="url(#cBody)"/>
+
+  <!-- Etiqueta -->
+  <rect x="70" y="158" width="160" height="122" fill="#FFFFFF"/>
+  <rect x="70" y="158" width="160" height="6" fill="#C6F24E"/>
+
+  <text x="150" y="190" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif"
+        font-size="13" font-weight="700" letter-spacing="4" fill="#101215">NUMORA</text>
+  <text x="150" y="226" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif"
+        font-size="24" font-weight="700" fill="#101215">CREATINE</text>
+  <text x="150" y="246" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif"
+        font-size="10.5" font-weight="600" letter-spacing="2.5" fill="#4A7A12">MONOHYDRATE</text>
+  <line x1="106" y1="256" x2="194" y2="256" stroke="#101215" stroke-opacity=".15" stroke-width="1"/>
+  <text x="150" y="272" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif"
+        font-size="9.5" letter-spacing="2" fill="#5A6068">5 g / DOSIS · 300 g</text>
+
+  <text x="150" y="308" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif"
+        font-size="9" letter-spacing="2.5" fill="#FFFFFF" fill-opacity=".55">MICRONIZADA</text>
+
+  <!-- Brillo lateral -->
+  <rect x="84" y="114" width="9" height="206" rx="4.5" fill="#FFFFFF" opacity=".14"/>
+</svg>

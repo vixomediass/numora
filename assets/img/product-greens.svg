@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" role="img" aria-label="Bote de Numora Daily Greens">
+  <defs>
+    <linearGradient id="gBody" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E9EFDD"/>
+      <stop offset=".18" stop-color="#FBFDF6"/>
+      <stop offset=".78" stop-color="#E6EDD8"/>
+      <stop offset="1" stop-color="#CBD6B6"/>
+    </linearGradient>
+    <linearGradient id="gLid" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1B1E23"/>
+      <stop offset=".22" stop-color="#33383F"/>
+      <stop offset=".8" stop-color="#15181C"/>
+      <stop offset="1" stop-color="#0A0C0E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Tapa -->
+  <rect x="88" y="58" width="124" height="40" rx="10" fill="url(#gLid)"/>
+  <rect x="96" y="67" width="108" height="3" rx="1.5" fill="#ffffff" opacity=".16"/>
+
+  <!-- Cuerpo -->
+  <rect x="72" y="92" width="156" height="248" rx="24" fill="url(#gBody)"/>
+
+  <!-- Etiqueta -->
+  <rect x="72" y="152" width="156" height="136" fill="#2C4A18"/>
+  <rect x="72" y="152" width="156" height="6" fill="#C6F24E"/>
+
+  <text x="150" y="184" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif"
+        font-size="13" font-weight="700" letter-spacing="4" fill="#FFFFFF">NUMORA</text>
+  <text x="150" y="222" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif"
+        font-size="25" font-weight="700" fill="#C6F24E">DAILY</text>
+  <text x="150" y="246" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif"
+        font-size="19" font-weight="600" letter-spacing="3" fill="#FFFFFF">GREENS</text>
+  <line x1="106" y1="258" x2="194" y2="258" stroke="#FFFFFF" stroke-opacity=".25" stroke-width="1"/>
+  <text x="150" y="276" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif"
+        font-size="9.5" letter-spacing="2" fill="#FFFFFF" fill-opacity=".72">24 VEGETALES · 240 g</text>
+
+  <!-- Hoja decorativa -->
+  <path d="M150 306c-14 0-24-9-24-19 13-3 24 3 27 12 3-9 14-15 27-12 0 10-10 19-24 19z"
+        fill="#4A7A12" opacity=".5"/>
+
+  <!-- Brillo lateral -->
+  <rect x="86" y="104" width="9" height="224" rx="4.5" fill="#FFFFFF" opacity=".6"/>
+</svg>

@@ -1,0 +1,733 @@
+/* =========================================================
+   NUMORA — Hoja de estilos
+   Orden del archivo:
+   1. Variables (paleta, tipografía, medidas)
+   2. Reset y base
+   3. Utilidades reutilizables (container, botones, tarjetas...)
+   4. Secciones, en el mismo orden que en el HTML
+   5. Responsive (media queries al final de cada bloque grande)
+   ========================================================= */
+
+
+/* =========================================================
+   1. VARIABLES
+   Cambiando estos valores cambia toda la web de golpe.
+   ========================================================= */
+:root {
+  /* Paleta: neutros claros + un único acento energético */
+  --ink:         #101215;   /* texto principal y botones oscuros */
+  --ink-soft:    #5A6068;   /* texto secundario */
+  --line:        #E5E5E0;   /* bordes finos */
+  --bg:          #FFFFFF;
+  --bg-alt:      #F6F6F3;   /* hueso: secciones alternas */
+  --accent:      #C6F24E;   /* lima: energía, siempre con texto oscuro encima */
+  --accent-deep: #4A7A12;   /* versión oscura del acento, para texto sobre blanco */
+
+  /* Tipografía */
+  --font-display: 'Sora', 'Segoe UI', system-ui, sans-serif;
+  --font-body:    'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  /* Medidas */
+  --max-width: 1160px;
+  --radius:    18px;
+  --radius-sm: 10px;
+
+  /* Sombras suaves: dan profundidad sin ensuciar el diseño */
+  --shadow-sm: 0 2px 8px rgba(16, 18, 21, .05);
+  --shadow-md: 0 14px 40px rgba(16, 18, 21, .09);
+
+  --transition: .25s ease;
+}
+
+
+/* =========================================================
+   2. RESET Y BASE
+   ========================================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -.02em;  /* titulares más compactos = look premium */
+}
+
+/* Foco visible para quien navega con teclado (accesibilidad) */
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--accent-deep);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   3. UTILIDADES REUTILIZABLES
+   ========================================================= */
+
+/* --- Contenedor: centra el contenido y limita el ancho --- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.container--narrow { max-width: 780px; }
+
+/* --- Secciones --- */
+.section        { padding: 72px 0; }
+.section--alt   { background: var(--bg-alt); }
+
+.section__head      { max-width: 640px; margin: 0 auto 44px; text-align: center; }
+.section__title     { font-size: clamp(1.75rem, 5vw, 2.6rem); margin-bottom: 14px; }
+.section__subtitle  { color: var(--ink-soft); font-size: 1.02rem; }
+
+/* --- Eyebrow: la etiqueta pequeña sobre los títulos --- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  margin-bottom: 14px;
+}
+.dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent-deep);
+}
+
+/* --- Botones --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 28px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: .95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition),
+              color var(--transition), box-shadow var(--transition);
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn--primary { background: var(--ink); color: #fff; box-shadow: var(--shadow-sm); }
+.btn--primary:hover { background: #000; box-shadow: var(--shadow-md); }
+
+/* El acento lima SIEMPRE lleva texto oscuro: con texto blanco no habría contraste */
+.btn--accent { background: var(--accent); color: var(--ink); }
+.btn--accent:hover { background: #d4ff62; box-shadow: 0 14px 40px rgba(198, 242, 78, .35); }
+
+.btn--ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn--ghost:hover { border-color: var(--ink); }
+
+.btn--sm { padding: 11px 20px; font-size: .875rem; }
+.btn--lg { padding: 18px 40px; font-size: 1.05rem; }
+
+/* --- Rejillas: se definen para móvil y se amplían más abajo --- */
+.grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+
+/* --- Tarjeta base --- */
+.card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+/* --- Animación de aparición al hacer scroll (la activa main.js) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Respeta a quien tiene desactivadas las animaciones en su sistema */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+
+
+/* =========================================================
+   4.1 HEADER
+   ========================================================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, .85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+/* La clase .is-scrolled la añade main.js al bajar 20px */
+.header.is-scrolled { border-bottom-color: var(--line); box-shadow: var(--shadow-sm); }
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+/* --- Logo --- */
+.logo { display: inline-flex; align-items: center; gap: 10px; }
+.logo__mark {
+  width: 22px; height: 22px;
+  border-radius: 7px;
+  background: var(--ink);
+  position: relative;
+}
+.logo__mark::after {
+  content: '';
+  position: absolute;
+  inset: 6px 6px auto auto;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.logo__text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: .16em;
+  font-size: .95rem;
+}
+.logo--light .logo__mark { background: #fff; }
+.logo--light .logo__mark::after { background: var(--accent); }
+
+/* --- Navegación (móvil: panel desplegable) --- */
+.nav {
+  position: fixed;
+  inset: 72px 0 auto 0;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  padding: 18px 20px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transform: translateY(-12px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-md);
+}
+.nav.is-open { transform: none; opacity: 1; visibility: visible; }
+
+.nav__link {
+  padding: 12px 4px;
+  font-size: .98rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+  transition: color var(--transition);
+}
+.nav__link:hover { color: var(--ink); }
+.nav__cta { margin-top: 14px; }
+
+/* --- Botón hamburguesa --- */
+.nav-toggle {
+  width: 42px; height: 42px;
+  display: grid;
+  place-content: center;
+  gap: 5px;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 18px; height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+/* Hamburguesa -> X cuando el menú está abierto */
+.nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+.nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+/* =========================================================
+   4.2 HERO
+   ========================================================= */
+.hero {
+  padding: 56px 0 64px;
+  background:
+    radial-gradient(1000px 420px at 80% -5%, rgba(198, 242, 78, .30), transparent 65%),
+    var(--bg);
+  overflow: hidden;
+}
+.hero__inner { display: grid; gap: 44px; align-items: center; }
+
+.hero__title {
+  font-size: clamp(2.4rem, 9vw, 4.2rem);
+  margin-bottom: 20px;
+}
+/* Subrayado de acento tras la palabra clave: dirige la mirada */
+.highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+.highlight::after {
+  content: '';
+  position: absolute;
+  left: -4px; right: -4px; bottom: .06em;
+  height: .34em;
+  background: var(--accent);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.hero__text {
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+  max-width: 480px;
+  margin-bottom: 30px;
+}
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
+
+.hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  font-size: .86rem;
+  color: var(--ink-soft);
+}
+.hero__trust li { display: flex; align-items: center; gap: 7px; }
+.hero__trust li::before {
+  content: '';
+  width: 16px; height: 16px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23101215' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/10px no-repeat;
+}
+
+/* --- Visual del hero --- */
+.hero__visual { position: relative; display: grid; place-items: center; }
+.hero__glow {
+  position: absolute;
+  width: 76%; aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(198, 242, 78, .55), transparent 68%);
+  filter: blur(10px);
+}
+.hero__product {
+  position: relative;
+  width: min(320px, 78%);
+  filter: drop-shadow(0 26px 40px rgba(16, 18, 21, .18));
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+
+/* Etiqueta flotante sobre el producto */
+.badge {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 18px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  line-height: 1.25;
+}
+.badge strong { display: block; font-family: var(--font-display); font-size: 1.2rem; }
+.badge span   { font-size: .74rem; color: var(--ink-soft); }
+.badge--float { position: absolute; bottom: 6%; right: 2%; }
+
+
+/* =========================================================
+   4.3 BANDA DE CLAIMS
+   ========================================================= */
+.marquee {
+  background: var(--ink);
+  color: rgba(255, 255, 255, .72);
+  padding: 16px 0;
+}
+.marquee__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 34px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-align: center;
+}
+
+
+/* =========================================================
+   4.4 BENEFICIOS
+   ========================================================= */
+.card--benefit { padding: 30px 26px; }
+.card--benefit:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.card--benefit h3 { font-size: 1.14rem; margin-bottom: 8px; }
+.card--benefit p  { color: var(--ink-soft); font-size: .94rem; }
+
+.icon {
+  width: 48px; height: 48px;
+  display: grid;
+  place-content: center;
+  border-radius: 14px;
+  background: var(--accent);
+  margin-bottom: 18px;
+}
+.icon svg {
+  width: 23px; height: 23px;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   4.5 PRODUCTOS
+   ========================================================= */
+.card--product { overflow: hidden; display: flex; flex-direction: column; }
+.card--product:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+
+.card__media {
+  position: relative;
+  background: linear-gradient(160deg, #FFFFFF, #EFEFE9);
+  padding: 34px 20px;
+  display: grid;
+  place-items: center;
+  border-bottom: 1px solid var(--line);
+}
+.card__media img { width: 168px; transition: transform .4s ease; }
+.card--product:hover .card__media img { transform: scale(1.05); }
+
+/* Etiqueta "Más vendido" / "Nuevo" */
+.tag {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: var(--accent);
+  color: var(--ink);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.tag--alt { background: var(--ink); color: #fff; }
+
+.card__body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card__title { font-size: 1.22rem; margin-bottom: 8px; }
+.card__text  { color: var(--ink-soft); font-size: .93rem; margin-bottom: 20px; }
+
+.card__footer {
+  margin-top: auto;                /* empuja precio y botón al fondo:
+                                      todas las tarjetas quedan alineadas */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.price { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; }
+
+
+/* =========================================================
+   4.6 CONFIANZA
+   ========================================================= */
+.trust { display: grid; gap: 40px; align-items: center; }
+
+.trust__media {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px;
+}
+.trust__content .section__title,
+.trust__content .section__subtitle { text-align: left; }
+.trust__content .section__subtitle { margin-bottom: 28px; }
+
+.trust__list { display: grid; gap: 20px; }
+.trust__list li {
+  position: relative;
+  padding-left: 38px;
+  color: var(--ink-soft);
+  font-size: .94rem;
+}
+.trust__list strong {
+  display: block;
+  color: var(--ink);
+  font-size: 1.02rem;
+  font-family: var(--font-display);
+  margin-bottom: 3px;
+}
+.trust__list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 2px;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23101215' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/13px no-repeat;
+}
+
+
+/* =========================================================
+   4.7 TESTIMONIOS
+   ========================================================= */
+.card--quote { padding: 26px; display: flex; flex-direction: column; }
+
+/* Aviso permanente de que el testimonio es un ejemplo */
+.demo-label {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin-bottom: 16px;
+}
+.stars { color: #E8B10A; letter-spacing: 2px; margin-bottom: 12px; }
+
+.card--quote blockquote {
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 22px;
+  flex: 1;
+}
+.card--quote figcaption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: .84rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+.card--quote figcaption strong { display: block; color: var(--ink); font-size: .92rem; }
+
+.avatar {
+  width: 40px; height: 40px;
+  flex-shrink: 0;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   4.8 FAQ
+   ========================================================= */
+.faq { display: grid; gap: 12px; }
+
+.faq__item {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 4px 20px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.faq__item[open] { border-color: var(--ink); box-shadow: var(--shadow-sm); }
+
+.faq__item summary {
+  position: relative;
+  list-style: none;          /* quita la flechita por defecto */
+  cursor: pointer;
+  padding: 18px 40px 18px 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+
+/* Icono + que gira a x al abrir */
+.faq__item summary::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 50%;
+  width: 22px; height: 22px;
+  margin-top: -11px;
+  border-radius: 50%;
+  background: var(--bg-alt) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23101215' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center/12px no-repeat;
+  transition: transform var(--transition), background-color var(--transition);
+}
+.faq__item[open] summary::after { transform: rotate(45deg); background-color: var(--accent); }
+
+.faq__answer { padding-bottom: 20px; color: var(--ink-soft); font-size: .95rem; }
+
+
+/* =========================================================
+   4.9 CTA FINAL
+   ========================================================= */
+.cta { padding: 20px 0 72px; }
+.cta__inner {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 26px;
+  padding: 56px 26px;
+  text-align: center;
+  max-width: var(--max-width);
+  position: relative;
+  overflow: hidden;
+}
+/* Halo de acento en la esquina para que el bloque no sea un rectángulo plano */
+.cta__inner::before {
+  content: '';
+  position: absolute;
+  top: -140px; right: -100px;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(198, 242, 78, .30), transparent 70%);
+}
+.cta__title { font-size: clamp(1.9rem, 6vw, 3rem); margin-bottom: 16px; position: relative; }
+.cta__text {
+  color: rgba(255, 255, 255, .74);
+  max-width: 540px;
+  margin: 0 auto 30px;
+  position: relative;
+}
+.cta .btn { position: relative; }
+.cta__note { margin-top: 18px; font-size: .82rem; color: rgba(255, 255, 255, .5); position: relative; }
+
+
+/* =========================================================
+   4.10 FOOTER
+   ========================================================= */
+.footer { background: var(--ink); color: rgba(255, 255, 255, .66); padding: 56px 0 28px; }
+
+.footer__top { display: grid; gap: 36px; padding-bottom: 40px; }
+.footer__brand p { margin: 16px 0 20px; font-size: .92rem; max-width: 300px; }
+
+.footer__col { display: flex; flex-direction: column; gap: 10px; }
+.footer__col h4 {
+  color: #fff;
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.footer__col a { font-size: .92rem; transition: color var(--transition); }
+.footer__col a:hover { color: var(--accent); }
+.footer__small { font-size: .84rem; color: rgba(255, 255, 255, .45); }
+
+.social { display: flex; gap: 10px; }
+.social a {
+  width: 38px; height: 38px;
+  display: grid;
+  place-content: center;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 50%;
+  transition: background var(--transition), border-color var(--transition);
+}
+.social a:hover { background: var(--accent); border-color: var(--accent); }
+.social svg {
+  width: 17px; height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.social a:hover svg { stroke: var(--ink); }
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  padding-top: 22px;
+  display: grid;
+  gap: 8px;
+  font-size: .82rem;
+  color: rgba(255, 255, 255, .45);
+}
+.footer__legal { font-size: .76rem; }
+
+
+/* =========================================================
+   5. RESPONSIVE
+   Mobile-first: hasta aquí todo el CSS era la versión móvil.
+   Ahora vamos ampliando el diseño según crece la pantalla.
+   ========================================================= */
+
+/* --- Tablet: 640px en adelante --- */
+@media (min-width: 640px) {
+  .grid--3, .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .footer__top       { grid-template-columns: repeat(2, 1fr); }
+  .footer__bottom    { grid-template-columns: 1fr auto; align-items: center; }
+  .cta__inner        { padding: 72px 48px; }
+}
+
+/* --- Desktop: 900px en adelante --- */
+@media (min-width: 900px) {
+  .section { padding: 100px 0; }
+
+  /* El menú móvil desaparece y la navegación vuelve a la barra */
+  .nav-toggle { display: none; }
+  .nav {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+  }
+  .nav__link { border: none; padding: 0; font-size: .93rem; }
+  .nav__cta  { margin-top: 0; }
+
+  .hero        { padding: 84px 0 100px; }
+  .hero__inner { grid-template-columns: 1.05fr .95fr; gap: 60px; }
+
+  .grid--3     { grid-template-columns: repeat(3, 1fr); }
+  .grid--4     { grid-template-columns: repeat(4, 1fr); }
+
+  .trust       { grid-template-columns: .9fr 1.1fr; gap: 64px; }
+  .trust__media { padding: 48px; }
+
+  .footer__top { grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
+}
+
+/* --- Pantallas grandes --- */
+@media (min-width: 1200px) {
+  .container { padding: 0 32px; }
+}

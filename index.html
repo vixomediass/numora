@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO básico: lo que ve Google y lo que se comparte en redes -->
+  <title>Numora | Suplementos de alto rendimiento</title>
+  <meta name="description" content="Suplementos deportivos con ingredientes trazables y testados en laboratorio. Proteína, creatina y greens para entrenar mejor cada día.">
+  <meta name="theme-color" content="#101215">
+
+  <!-- Tipografías: Sora para titulares, Inter para texto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       1. HEADER — logo + navegación + CTA
+       ========================================================= -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+
+      <a href="#inicio" class="logo" aria-label="Numora, inicio">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span class="logo__text">NUMORA</span>
+      </a>
+
+      <!-- Navegación principal (en móvil se despliega con el botón hamburguesa) -->
+      <nav class="nav" id="nav" aria-label="Navegación principal">
+        <a href="#beneficios" class="nav__link">Beneficios</a>
+        <a href="#productos" class="nav__link">Productos</a>
+        <a href="#calidad" class="nav__link">Calidad</a>
+        <a href="#opiniones" class="nav__link">Opiniones</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+        <a href="#comprar" class="btn btn--primary btn--sm nav__cta">Comprar ahora</a>
+      </nav>
+
+      <!-- Botón hamburguesa: solo visible en móvil -->
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =========================================================
+         2. HERO — primer impacto: promesa + CTA + producto
+         ========================================================= -->
+    <section class="hero" id="inicio">
+      <div class="container hero__inner">
+
+        <div class="hero__content reveal">
+          <p class="eyebrow"><span class="dot"></span> Testado en laboratorio independiente</p>
+
+          <h1 class="hero__title">
+            Entrena duro.<br>
+            Recupera <span class="highlight">mejor.</span>
+          </h1>
+
+          <p class="hero__text">
+            Suplementos formulados con ingredientes trazables, sin rellenos ni azúcares
+            añadidos. Lo que pone en la etiqueta es exactamente lo que hay dentro.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#productos" class="btn btn--primary">Ver productos</a>
+            <a href="#calidad" class="btn btn--ghost">Cómo lo fabricamos</a>
+          </div>
+
+          <!-- Micro-confianza: reduce la fricción justo debajo del botón -->
+          <ul class="hero__trust">
+            <li>Envío gratis +50 €</li>
+            <li>Entrega 24/48 h</li>
+            <li>30 días de garantía</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="hero__glow" aria-hidden="true"></div>
+          <img src="assets/img/product-whey.svg" alt="Bote de Numora Whey Isolate, proteína aislada sabor vainilla" class="hero__product">
+          <div class="badge badge--float">
+            <strong>25 g</strong>
+            <span>proteína por dosis</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Banda de claims: refuerza autoridad justo tras el hero -->
+    <div class="marquee">
+      <div class="container marquee__inner">
+        <span>SIN AZÚCARES AÑADIDOS</span>
+        <span>APTO VEGETARIANOS</span>
+        <span>FABRICADO EN LA UE</span>
+        <span>SIN ACEITE DE PALMA</span>
+        <span>ANÁLISIS POR LOTE</span>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         3. BENEFICIOS — por qué comprar aquí y no en otro sitio
+         ========================================================= -->
+    <section class="section" id="beneficios">
+      <div class="container">
+
+        <div class="section__head reveal">
+          <p class="eyebrow">Por qué Numora</p>
+          <h2 class="section__title">Menos ingredientes. Mejor rendimiento.</h2>
+          <p class="section__subtitle">
+            Cuatro principios que aplicamos a cada fórmula antes de sacarla al mercado.
+          </p>
+        </div>
+
+        <div class="grid grid--4">
+
+          <article class="card card--benefit reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+            </div>
+            <h3>Fórmulas efectivas</h3>
+            <p>Dosis activas reales, no cantidades simbólicas para rellenar la etiqueta.</p>
+          </article>
+
+          <article class="card card--benefit reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V6l-8-4z"/></svg>
+            </div>
+            <h3>Pureza verificada</h3>
+            <p>Cada lote pasa un análisis externo de metales pesados y contaminantes.</p>
+          </article>
+
+          <article class="card card--benefit reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 13h4l3 7 4-16 3 9h4"/></svg>
+            </div>
+            <h3>Absorción rápida</h3>
+            <p>Perfiles pensados para el post-entreno: digestión ligera y sin hinchazón.</p>
+          </article>
+
+          <article class="card card--benefit reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h3>Etiqueta limpia</h3>
+            <p>Sin azúcares añadidos, sin colorantes artificiales y sin letra pequeña.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. PRODUCTOS DESTACADOS
+         ========================================================= -->
+    <section class="section section--alt" id="productos">
+      <div class="container">
+
+        <div class="section__head reveal">
+          <p class="eyebrow">Catálogo</p>
+          <h2 class="section__title">Los tres esenciales</h2>
+          <p class="section__subtitle">
+            Lo mínimo que necesitas para entrenar, recuperar y sostener el progreso.
+          </p>
+        </div>
+
+        <div class="grid grid--3">
+
+          <article class="card card--product reveal">
+            <div class="card__media">
+              <span class="tag">Más vendido</span>
+              <img src="assets/img/product-whey.svg" alt="Numora Whey Isolate, bote de 1 kg">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Whey Isolate</h3>
+              <p class="card__text">
+                Proteína aislada al 90 % con 25 g por dosis. Sabor vainilla, se disuelve sin grumos.
+              </p>
+              <div class="card__footer">
+                <span class="price">39,90 €</span>
+                <a href="#comprar" class="btn btn--primary btn--sm">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--product reveal">
+            <div class="card__media">
+              <span class="tag tag--alt">Nuevo</span>
+              <img src="assets/img/product-creatine.svg" alt="Numora Creatine Monohydrate, bote de 300 g">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Creatine Monohydrate</h3>
+              <p class="card__text">
+                Creatina micronizada, 5 g diarios. El suplemento con más evidencia científica detrás.
+              </p>
+              <div class="card__footer">
+                <span class="price">24,90 €</span>
+                <a href="#comprar" class="btn btn--primary btn--sm">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--product reveal">
+            <div class="card__media">
+              <img src="assets/img/product-greens.svg" alt="Numora Daily Greens, bote de 240 g">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Daily Greens</h3>
+              <p class="card__text">
+                24 vegetales, vitaminas y minerales en una cucharada. Para los días que comes mal.
+              </p>
+              <div class="card__footer">
+                <span class="price">29,90 €</span>
+                <a href="#comprar" class="btn btn--primary btn--sm">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. CONFIANZA — calidad, ingredientes, envíos, garantía
+         ========================================================= -->
+    <section class="section" id="calidad">
+      <div class="container">
+        <div class="trust">
+
+          <div class="trust__media reveal">
+            <img src="assets/img/lab.svg" alt="Ilustración del control de calidad en laboratorio">
+          </div>
+
+          <div class="trust__content reveal">
+            <p class="eyebrow">Calidad y garantía</p>
+            <h2 class="section__title">Transparencia de la materia prima al envío</h2>
+            <p class="section__subtitle">
+              No fabricamos más rápido: fabricamos mejor. Este es el proceso completo.
+            </p>
+
+            <ul class="trust__list">
+              <li>
+                <strong>Ingredientes trazables</strong>
+                Sabemos el origen de cada materia prima y publicamos el proveedor por lote.
+              </li>
+              <li>
+                <strong>Análisis independiente</strong>
+                Laboratorio externo antes de cada envasado. El informe va en el QR del bote.
+              </li>
+              <li>
+                <strong>Envío en 24/48 h</strong>
+                Preparamos el pedido el mismo día si compras antes de las 15:00. Gratis desde 50 €.
+              </li>
+              <li>
+                <strong>30 días de garantía</strong>
+                Si no notas la diferencia, te devolvemos el dinero aunque el bote esté abierto.
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         6. TESTIMONIOS (contenido de ejemplo — marca ficticia)
+         ========================================================= -->
+    <section class="section section--alt" id="opiniones">
+      <div class="container">
+
+        <div class="section__head reveal">
+          <p class="eyebrow">Opiniones</p>
+          <h2 class="section__title">Qué dicen quienes entrenan con Numora</h2>
+          <p class="section__subtitle">
+            Numora es una marca ficticia creada como proyecto de práctica: los testimonios
+            de abajo son ejemplos inventados, no opiniones de clientes reales.
+          </p>
+        </div>
+
+        <div class="grid grid--3">
+
+          <figure class="card card--quote reveal">
+            <p class="demo-label">Testimonio de ejemplo</p>
+            <div class="stars" aria-label="5 de 5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>
+              La proteína se disuelve de verdad, sin grumos ni ese sabor artificial.
+              Es la primera que termino entera con gusto.
+            </blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">L</span>
+              <span><strong>Laura M.</strong> Persona ficticia · Crossfit 3 días/semana</span>
+            </figcaption>
+          </figure>
+
+          <figure class="card card--quote reveal">
+            <p class="demo-label">Testimonio de ejemplo</p>
+            <div class="stars" aria-label="5 de 5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>
+              Pedí un martes y lo tenía el miércoles. La caja venía impecable y el QR
+              con el análisis del lote me dio mucha tranquilidad.
+            </blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">D</span>
+              <span><strong>Diego R.</strong> Persona ficticia · Powerlifting</span>
+            </figcaption>
+          </figure>
+
+          <figure class="card card--quote reveal">
+            <p class="demo-label">Testimonio de ejemplo</p>
+            <div class="stars" aria-label="4 de 5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+            <blockquote>
+              Llevo dos meses con la creatina y el Greens. Rindo mejor en las últimas
+              series y ya no arrastro tanto el cansancio.
+            </blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">A</span>
+              <span><strong>Ainhoa V.</strong> Persona ficticia · Running y gimnasio</span>
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. FAQ — acordeón nativo con <details>
+         ========================================================= -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+
+        <div class="section__head reveal">
+          <p class="eyebrow">Dudas frecuentes</p>
+          <h2 class="section__title">Todo lo que sueles preguntar</h2>
+        </div>
+
+        <div class="faq reveal">
+
+          <details class="faq__item">
+            <summary>¿Cuánto tarda en llegar mi pedido?</summary>
+            <div class="faq__answer">
+              <p>Entre 24 y 48 horas laborables en península. Los pedidos hechos antes de las
+              15:00 salen el mismo día. Recibirás un email con el número de seguimiento en cuanto
+              el paquete salga de nuestro almacén.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>¿El envío es gratis?</summary>
+            <div class="faq__answer">
+              <p>Sí, en todos los pedidos superiores a 50 €. Por debajo de esa cantidad el
+              envío cuesta 3,95 € y se calcula automáticamente en el carrito.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>¿Qué pasa si el producto no me gusta?</summary>
+            <div class="faq__answer">
+              <p>Tienes 30 días para devolverlo, incluso si ya has abierto el bote y lo has
+              probado. Escribes a soporte, te enviamos la etiqueta de devolución y te
+              reembolsamos el importe completo.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>¿Cómo se toma la proteína y en qué momento?</summary>
+            <div class="faq__answer">
+              <p>Una dosis (30 g) con 250-300 ml de agua o bebida vegetal. Lo habitual es
+              tomarla después de entrenar, pero lo importante es llegar a tu objetivo diario de
+              proteína: puedes tomarla a cualquier hora del día.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>¿Son aptos para intolerantes a la lactosa?</summary>
+            <div class="faq__answer">
+              <p>El Whey Isolate contiene menos de 0,5 g de lactosa por dosis, por lo que suele
+              tolerarse bien. Daily Greens y Creatine Monohydrate están libres de lactosa.
+              Si tienes alguna condición médica o tomas medicación, consulta antes con tu médico.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>¿Puedo pagar contra reembolso?</summary>
+            <div class="faq__answer">
+              <p>Sí. Aceptamos tarjeta, Bizum, PayPal y pago contra reembolso (este último
+              con un recargo de 2,50 € por gestión del transportista).</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         8. CTA FINAL — último empujón a la conversión
+         ========================================================= -->
+    <section class="cta" id="comprar">
+      <div class="container cta__inner reveal">
+        <h2 class="cta__title">Empieza hoy tu mejor versión</h2>
+        <p class="cta__text">
+          Pack Esencial: Whey Isolate + Creatine Monohydrate por 57,90 € en lugar de 64,80 €.
+          Envío gratis y 30 días de garantía de devolución.
+        </p>
+        <a href="#productos" class="btn btn--accent btn--lg">Comprar el pack ahora</a>
+        <p class="cta__note">Pago seguro · Entrega en 24/48 h · Sin permanencia</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       9. FOOTER
+       ========================================================= -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer__top">
+
+        <div class="footer__brand">
+          <a href="#inicio" class="logo logo--light">
+            <span class="logo__mark" aria-hidden="true"></span>
+            <span class="logo__text">NUMORA</span>
+          </a>
+          <p>Suplementos honestos para gente que entrena en serio.</p>
+
+          <ul class="social" aria-label="Redes sociales">
+            <li><a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2"/></svg>
+            </a></li>
+            <li><a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24"><path d="M14 3v11a3.5 3.5 0 1 1-3-3.5"/><path d="M14 6a5 5 0 0 0 5 4"/></svg>
+            </a></li>
+            <li><a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="4"/><path d="M11 10.5v3l3-1.5z"/></svg>
+            </a></li>
+            <li><a href="#" aria-label="X">
+              <svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg>
+            </a></li>
+          </ul>
+        </div>
+
+        <nav class="footer__col" aria-label="Tienda">
+          <h4>Tienda</h4>
+          <a href="#productos">Whey Isolate</a>
+          <a href="#productos">Creatine Monohydrate</a>
+          <a href="#productos">Daily Greens</a>
+          <a href="#comprar">Pack Esencial</a>
+        </nav>
+
+        <nav class="footer__col" aria-label="Ayuda">
+          <h4>Ayuda</h4>
+          <a href="#faq">Preguntas frecuentes</a>
+          <a href="#calidad">Envíos y entregas</a>
+          <a href="#calidad">Devoluciones</a>
+          <a href="#opiniones">Opiniones</a>
+        </nav>
+
+        <div class="footer__col">
+          <h4>Contacto</h4>
+          <a href="mailto:hola@numora.example">hola@numora.example</a>
+          <a href="tel:+34900000000">+34 900 000 000</a>
+          <p class="footer__small">Lunes a viernes, 9:00 - 18:00<br>Calle Ficticia 24, Madrid</p>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 Numora. Marca ficticia creada como proyecto de práctica.</p>
+        <p class="footer__legal">
+          Los complementos alimenticios no sustituyen una dieta equilibrada.
+          Esta web no vende productos reales.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

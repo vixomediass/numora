@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" role="img" aria-label="Bote de Numora Whey Isolate">
+  <defs>
+    <linearGradient id="wBody" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F2F2EE"/>
+      <stop offset=".18" stop-color="#FFFFFF"/>
+      <stop offset=".78" stop-color="#F0F0EA"/>
+      <stop offset="1" stop-color="#DCDCD4"/>
+    </linearGradient>
+    <linearGradient id="wLid" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1B1E23"/>
+      <stop offset=".22" stop-color="#33383F"/>
+      <stop offset=".8" stop-color="#15181C"/>
+      <stop offset="1" stop-color="#0A0C0E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Tapa -->
+  <rect x="78" y="34" width="144" height="46" rx="10" fill="url(#wLid)"/>
+  <rect x="86" y="44" width="128" height="3" rx="1.5" fill="#ffffff" opacity=".16"/>
+
+  <!-- Cuerpo del bote -->
+  <rect x="62" y="74" width="176" height="278" rx="26" fill="url(#wBody)"/>
+
+  <!-- Banda de etiqueta -->
+  <rect x="62" y="140" width="176" height="150" fill="#101215"/>
+  <rect x="62" y="140" width="176" height="7" fill="#C6F24E"/>
+
+  <!-- Textos de la etiqueta -->
+  <text x="150" y="176" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif"
+        font-size="15" font-weight="700" letter-spacing="4" fill="#FFFFFF">NUMORA</text>
+  <text x="150" y="220" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif"
+        font-size="26" font-weight="700" fill="#C6F24E">WHEY</text>
+  <text x="150" y="246" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif"
+        font-size="17" font-weight="600" letter-spacing="3" fill="#FFFFFF">ISOLATE</text>
+  <line x1="104" y1="258" x2="196" y2="258" stroke="#FFFFFF" stroke-opacity=".25" stroke-width="1"/>
+  <text x="150" y="276" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif"
+        font-size="10" letter-spacing="2" fill="#FFFFFF" fill-opacity=".7">25 g PROTEÍNA · 1 kg</text>
+
+  <!-- Pie del bote -->
+  <text x="150" y="322" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif"
+        font-size="9.5" letter-spacing="2.5" fill="#8A8F96">VAINILLA</text>
+
+  <!-- Brillo lateral -->
+  <rect x="76" y="86" width="10" height="254" rx="5" fill="#FFFFFF" opacity=".55"/>
+</svg>
