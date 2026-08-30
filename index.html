@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO básico: lo que ve Google y lo que se comparte en redes -->
-  <title>Numora | Suplementos de alto rendimiento</title>
-  <meta name="description" content="Suplementos deportivos con ingredientes trazables y testados en laboratorio. Proteína, creatina y greens para entrenar mejor cada día.">
+  <title>Numora | Suplementos con envío en Santiago y pago al recibir</title>
+  <meta name="description" content="Proteína, creatina y greens con ingredientes trazables. Envío gratis en Santiago en 24-48 h y pagas en efectivo cuando recibes tu pedido.">
   <meta name="theme-color" content="#101215">
 
   <!-- Tipografías: Sora para titulares, Inter para texto -->
@@ -17,6 +17,17 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+  <!-- =========================================================
+       0. BARRA SUPERIOR — el mensaje de contra entrega, antes que nada
+       ========================================================= -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>Envío gratis en Santiago</span>
+      <span class="topbar__sep" aria-hidden="true">·</span>
+      <span>Pagas en efectivo al recibir tu pedido</span>
+    </div>
+  </div>
 
   <!-- =========================================================
        1. HEADER — logo + navegación + CTA
@@ -31,7 +42,7 @@
 
       <!-- Navegación principal (en móvil se despliega con el botón hamburguesa) -->
       <nav class="nav" id="nav" aria-label="Navegación principal">
-        <a href="#beneficios" class="nav__link">Beneficios</a>
+        <a href="#como-funciona" class="nav__link">Cómo funciona</a>
         <a href="#productos" class="nav__link">Productos</a>
         <a href="#calidad" class="nav__link">Calidad</a>
         <a href="#opiniones" class="nav__link">Opiniones</a>
@@ -64,20 +75,20 @@
           </h1>
 
           <p class="hero__text">
-            Suplementos formulados con ingredientes trazables, sin rellenos ni azúcares
-            añadidos. Lo que pone en la etiqueta es exactamente lo que hay dentro.
+            Suplementos con ingredientes trazables, sin rellenos ni azúcares añadidos.
+            Despachamos desde Santiago y pagas cuando el pedido está en tus manos.
           </p>
 
           <div class="hero__actions">
             <a href="#productos" class="btn btn--primary">Ver productos</a>
-            <a href="#calidad" class="btn btn--ghost">Cómo lo fabricamos</a>
+            <a href="#como-funciona" class="btn btn--ghost">Cómo funciona el pago</a>
           </div>
 
           <!-- Micro-confianza: reduce la fricción justo debajo del botón -->
           <ul class="hero__trust">
-            <li>Envío gratis +50 €</li>
-            <li>Entrega 24/48 h</li>
-            <li>30 días de garantía</li>
+            <li><strong>Pagas al recibir</strong></li>
+            <li>Santiago en 24-48 h</li>
+            <li>Envío gratis</li>
           </ul>
         </div>
 
@@ -98,16 +109,64 @@
       <div class="container marquee__inner">
         <span>SIN AZÚCARES AÑADIDOS</span>
         <span>APTO VEGETARIANOS</span>
-        <span>FABRICADO EN LA UE</span>
+        <span>IMPORTADO DESDE EUROPA</span>
         <span>SIN ACEITE DE PALMA</span>
         <span>ANÁLISIS POR LOTE</span>
       </div>
     </div>
 
     <!-- =========================================================
-         3. BENEFICIOS — por qué comprar aquí y no en otro sitio
+         3. CÓMO FUNCIONA — resuelve la objeción principal del
+            contra entrega: "¿y cuándo pago exactamente?"
          ========================================================= -->
-    <section class="section" id="beneficios">
+    <section class="section" id="como-funciona">
+      <div class="container">
+
+        <div class="section__head reveal">
+          <p class="eyebrow">Pago contra entrega</p>
+          <h2 class="section__title">No pagas nada hasta tenerlo en la mano</h2>
+          <p class="section__subtitle">
+            Sin tarjeta por adelantado y sin transferencia a ciegas. Pides, recibes y pagas.
+          </p>
+        </div>
+
+        <ol class="how">
+
+          <li class="how__step reveal">
+            <span class="how__num">1</span>
+            <h3>Haces tu pedido</h3>
+            <p>
+              Dejas tu nombre, teléfono y dirección. En este momento no pagas nada
+              ni entregas datos de tarjeta.
+            </p>
+          </li>
+
+          <li class="how__step reveal">
+            <span class="how__num">2</span>
+            <h3>Confirmamos y despachamos</h3>
+            <p>
+              Te escribimos por WhatsApp para confirmar la dirección y el pedido sale
+              desde nuestra bodega en Santiago.
+            </p>
+          </li>
+
+          <li class="how__step reveal">
+            <span class="how__num">3</span>
+            <h3>Pagas al recibirlo</h3>
+            <p>
+              Le pagas en efectivo al repartidor cuando el paquete llega a tu puerta.
+              Si prefieres transferencia, también se puede.
+            </p>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. BENEFICIOS — por qué comprar aquí y no en otro sitio
+         ========================================================= -->
+    <section class="section section--alt" id="beneficios">
       <div class="container">
 
         <div class="section__head reveal">
@@ -157,9 +216,9 @@
     </section>
 
     <!-- =========================================================
-         4. PRODUCTOS DESTACADOS
+         5. PRODUCTOS DESTACADOS
          ========================================================= -->
-    <section class="section section--alt" id="productos">
+    <section class="section" id="productos">
       <div class="container">
 
         <div class="section__head reveal">
@@ -183,7 +242,10 @@
                 Proteína aislada al 90 % con 25 g por dosis. Sabor vainilla, se disuelve sin grumos.
               </p>
               <div class="card__footer">
-                <span class="price">39,90 €</span>
+                <div class="price-block">
+                  <span class="price__old">$44.990</span>
+                  <span class="price">$34.990</span>
+                </div>
                 <a href="#comprar" class="btn btn--primary btn--sm" data-shopify="whey">Comprar</a>
               </div>
             </div>
@@ -200,7 +262,10 @@
                 Creatina micronizada, 5 g diarios. El suplemento con más evidencia científica detrás.
               </p>
               <div class="card__footer">
-                <span class="price">24,90 €</span>
+                <div class="price-block">
+                  <span class="price__old">$26.990</span>
+                  <span class="price">$19.990</span>
+                </div>
                 <a href="#comprar" class="btn btn--primary btn--sm" data-shopify="creatina">Comprar</a>
               </div>
             </div>
@@ -216,7 +281,10 @@
                 24 vegetales, vitaminas y minerales en una cucharada. Para los días que comes mal.
               </p>
               <div class="card__footer">
-                <span class="price">29,90 €</span>
+                <div class="price-block">
+                  <span class="price__old">$32.990</span>
+                  <span class="price">$24.990</span>
+                </div>
                 <a href="#comprar" class="btn btn--primary btn--sm" data-shopify="greens">Comprar</a>
               </div>
             </div>
@@ -227,9 +295,9 @@
     </section>
 
     <!-- =========================================================
-         5. CONFIANZA — calidad, ingredientes, envíos, garantía
+         6. CONFIANZA — calidad, ingredientes, envíos, garantía
          ========================================================= -->
-    <section class="section" id="calidad">
+    <section class="section section--alt" id="calidad">
       <div class="container">
         <div class="trust">
 
@@ -254,8 +322,9 @@
                 Laboratorio externo antes de cada envasado. El informe va en el QR del bote.
               </li>
               <li>
-                <strong>Envío en 24/48 h</strong>
-                Preparamos el pedido el mismo día si compras antes de las 15:00. Gratis desde 50 €.
+                <strong>Bodega en Santiago</strong>
+                Los pedidos hechos antes de las 15:00 salen el mismo día. Entrega en 24-48 h
+                en la Región Metropolitana.
               </li>
               <li>
                 <strong>30 días de garantía</strong>
@@ -269,9 +338,9 @@
     </section>
 
     <!-- =========================================================
-         6. TESTIMONIOS (contenido de ejemplo — marca ficticia)
+         7. TESTIMONIOS (contenido de ejemplo — marca ficticia)
          ========================================================= -->
-    <section class="section section--alt" id="opiniones">
+    <section class="section" id="opiniones">
       <div class="container">
 
         <div class="section__head reveal">
@@ -293,8 +362,8 @@
               Es la primera que termino entera con gusto.
             </blockquote>
             <figcaption>
-              <span class="avatar" aria-hidden="true">L</span>
-              <span><strong>Laura M.</strong> Persona ficticia · Crossfit 3 días/semana</span>
+              <span class="avatar" aria-hidden="true">C</span>
+              <span><strong>Camila R.</strong> Persona ficticia · Ñuñoa</span>
             </figcaption>
           </figure>
 
@@ -302,12 +371,12 @@
             <p class="demo-label">Testimonio de ejemplo</p>
             <div class="stars" aria-label="5 de 5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <blockquote>
-              Pedí un martes y lo tenía el miércoles. La caja venía impecable y el QR
-              con el análisis del lote me dio mucha tranquilidad.
+              Pedí un martes y llegó el miércoles a Providencia. Le pagué al repartidor
+              sin ningún problema, tal como decía la página.
             </blockquote>
             <figcaption>
-              <span class="avatar" aria-hidden="true">D</span>
-              <span><strong>Diego R.</strong> Persona ficticia · Powerlifting</span>
+              <span class="avatar" aria-hidden="true">M</span>
+              <span><strong>Matías S.</strong> Persona ficticia · Providencia</span>
             </figcaption>
           </figure>
 
@@ -319,8 +388,8 @@
               series y ya no arrastro tanto el cansancio.
             </blockquote>
             <figcaption>
-              <span class="avatar" aria-hidden="true">A</span>
-              <span><strong>Ainhoa V.</strong> Persona ficticia · Running y gimnasio</span>
+              <span class="avatar" aria-hidden="true">F</span>
+              <span><strong>Fernanda O.</strong> Persona ficticia · Maipú</span>
             </figcaption>
           </figure>
 
@@ -329,9 +398,9 @@
     </section>
 
     <!-- =========================================================
-         7. FAQ — acordeón nativo con <details>
+         8. FAQ — acordeón nativo con <details>
          ========================================================= -->
-    <section class="section" id="faq">
+    <section class="section section--alt" id="faq">
       <div class="container container--narrow">
 
         <div class="section__head reveal">
@@ -342,54 +411,65 @@
         <div class="faq reveal">
 
           <details class="faq__item">
-            <summary>¿Cuánto tarda en llegar mi pedido?</summary>
+            <summary>¿Cómo funciona exactamente el pago contra entrega?</summary>
             <div class="faq__answer">
-              <p>Entre 24 y 48 horas laborables en península. Los pedidos hechos antes de las
-              15:00 salen el mismo día. Recibirás un email con el número de seguimiento en cuanto
-              el paquete salga de nuestro almacén.</p>
+              <p>Haces el pedido sin pagar nada. Te contactamos por WhatsApp para confirmar
+              la dirección, despachamos y le pagas en efectivo al repartidor cuando recibes
+              el paquete. Si algo no te convence al abrirlo, tienes 30 días para devolverlo.</p>
             </div>
           </details>
 
           <details class="faq__item">
-            <summary>¿El envío es gratis?</summary>
+            <summary>¿Cuánto demora en llegar a mi comuna?</summary>
             <div class="faq__answer">
-              <p>Sí, en todos los pedidos superiores a 50 €. Por debajo de esa cantidad el
-              envío cuesta 3,95 € y se calcula automáticamente en el carrito.</p>
+              <p>En la Región Metropolitana, entre 24 y 48 horas hábiles. Los pedidos hechos
+              antes de las 15:00 salen el mismo día desde nuestra bodega en Santiago.
+              A regiones demora entre 3 y 5 días hábiles.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>¿El envío tiene costo?</summary>
+            <div class="faq__answer">
+              <p>En toda la Región Metropolitana el envío es gratis, sin monto mínimo.
+              A regiones tiene un costo de $3.990 que se suma al total y también se paga
+              al recibir.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>¿Puedo pagar con transferencia o tarjeta?</summary>
+            <div class="faq__answer">
+              <p>Sí. Si prefieres pagar antes, aceptamos transferencia bancaria y tarjeta.
+              El contra entrega está para que puedas comprar tranquilo la primera vez,
+              pero no es la única forma.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>¿Me entregan boleta?</summary>
+            <div class="faq__answer">
+              <p>Sí. Emitimos boleta electrónica con tu RUT y te llega al correo o por
+              WhatsApp junto con el seguimiento del pedido.</p>
             </div>
           </details>
 
           <details class="faq__item">
             <summary>¿Qué pasa si el producto no me gusta?</summary>
             <div class="faq__answer">
-              <p>Tienes 30 días para devolverlo, incluso si ya has abierto el bote y lo has
-              probado. Escribes a soporte, te enviamos la etiqueta de devolución y te
-              reembolsamos el importe completo.</p>
-            </div>
-          </details>
-
-          <details class="faq__item">
-            <summary>¿Cómo se toma la proteína y en qué momento?</summary>
-            <div class="faq__answer">
-              <p>Una dosis (30 g) con 250-300 ml de agua o bebida vegetal. Lo habitual es
-              tomarla después de entrenar, pero lo importante es llegar a tu objetivo diario de
-              proteína: puedes tomarla a cualquier hora del día.</p>
+              <p>Tienes 30 días para devolverlo, incluso si ya abriste el envase y lo
+              probaste. Nos escribes, coordinamos el retiro y te devolvemos el dinero
+              completo.</p>
             </div>
           </details>
 
           <details class="faq__item">
             <summary>¿Son aptos para intolerantes a la lactosa?</summary>
             <div class="faq__answer">
-              <p>El Whey Isolate contiene menos de 0,5 g de lactosa por dosis, por lo que suele
-              tolerarse bien. Daily Greens y Creatine Monohydrate están libres de lactosa.
-              Si tienes alguna condición médica o tomas medicación, consulta antes con tu médico.</p>
-            </div>
-          </details>
-
-          <details class="faq__item">
-            <summary>¿Puedo pagar contra reembolso?</summary>
-            <div class="faq__answer">
-              <p>Sí. Aceptamos tarjeta, Bizum, PayPal y pago contra reembolso (este último
-              con un recargo de 2,50 € por gestión del transportista).</p>
+              <p>El Whey Isolate contiene menos de 0,5 g de lactosa por dosis, por lo que
+              suele tolerarse bien. Daily Greens y Creatine Monohydrate están libres de
+              lactosa. Si tienes alguna condición médica o tomas medicamentos, consulta
+              antes con tu médico.</p>
             </div>
           </details>
 
@@ -398,24 +478,24 @@
     </section>
 
     <!-- =========================================================
-         8. CTA FINAL — último empujón a la conversión
+         9. CTA FINAL — último empujón a la conversión
          ========================================================= -->
     <section class="cta" id="comprar">
       <div class="container cta__inner reveal">
         <h2 class="cta__title">Empieza hoy tu mejor versión</h2>
         <p class="cta__text">
-          Pack Esencial: Whey Isolate + Creatine Monohydrate por 57,90 € en lugar de 64,80 €.
-          Envío gratis y 30 días de garantía de devolución.
+          Pack Esencial: Whey Isolate + Creatine Monohydrate por $44.990 en lugar de
+          $54.980. Envío gratis en Santiago y pagas cuando lo recibes.
         </p>
-        <a href="#productos" class="btn btn--accent btn--lg" data-shopify="pack">Comprar el pack ahora</a>
-        <p class="cta__note">Pago seguro · Entrega en 24/48 h · Sin permanencia</p>
+        <a href="#productos" class="btn btn--accent btn--lg" data-shopify="pack">Pedir ahora y pagar al recibir</a>
+        <p class="cta__note">Sin pago adelantado · Entrega en 24-48 h · 30 días de garantía</p>
       </div>
     </section>
 
   </main>
 
   <!-- =========================================================
-       9. FOOTER
+       10. FOOTER
        ========================================================= -->
   <footer class="footer">
     <div class="container">
@@ -455,17 +535,17 @@
 
         <nav class="footer__col" aria-label="Ayuda">
           <h4>Ayuda</h4>
+          <a href="#como-funciona">Cómo funciona el pago</a>
           <a href="#faq">Preguntas frecuentes</a>
-          <a href="#calidad">Envíos y entregas</a>
-          <a href="#calidad">Devoluciones</a>
-          <a href="#opiniones">Opiniones</a>
+          <a href="#faq">Envíos y cobertura</a>
+          <a href="#faq">Devoluciones</a>
         </nav>
 
         <div class="footer__col">
           <h4>Contacto</h4>
           <a href="mailto:hola@numora.example">hola@numora.example</a>
-          <a href="tel:+34900000000">+34 900 000 000</a>
-          <p class="footer__small">Lunes a viernes, 9:00 - 18:00<br>Calle Ficticia 24, Madrid</p>
+          <a href="tel:+56900000000">+56 9 0000 0000</a>
+          <p class="footer__small">Lunes a viernes, 9:00 - 18:00<br>Santiago, Región Metropolitana</p>
         </div>
 
       </div>
@@ -480,6 +560,30 @@
 
     </div>
   </footer>
+
+  <!-- =========================================================
+       11. BARRA FIJA DE COMPRA (solo móvil)
+       Aparece al pasar el hero. La activa js/main.js.
+       ========================================================= -->
+  <div class="sticky-cta" id="stickyCta">
+    <div class="sticky-cta__text">
+      <strong>Pagas al recibir</strong>
+      <span>Envío gratis en Santiago</span>
+    </div>
+    <a href="#productos" class="btn btn--accent btn--sm">Ver productos</a>
+  </div>
+
+  <!-- =========================================================
+       12. BOTÓN DE WHATSAPP
+       Se muestra solo si pones tu número en js/main.js.
+       ========================================================= -->
+  <a class="whatsapp" id="whatsapp" href="#" target="_blank" rel="noopener"
+     aria-label="Escribirnos por WhatsApp" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/>
+      <path d="M8.5 7.5c.3 0 .6 0 .8.5l.9 2c.1.3 0 .5-.1.7l-.5.6c-.2.2-.2.4 0 .7a8 8 0 0 0 3.4 3c.3.1.5.1.7-.1l.6-.7c.2-.2.4-.2.6-.1l2 1c.4.2.5.4.5.7 0 1.2-1 2.2-2.2 2.2-3.9 0-8-4.1-8-8 0-1.2 1-2.2 2.3-2.5z"/>
+    </svg>
+  </a>
 
   <script src="js/main.js"></script>
 </body>

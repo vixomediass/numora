@@ -222,8 +222,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 /* --- Navegación (móvil: panel desplegable) --- */
 .nav {
-  position: fixed;
-  inset: 72px 0 auto 0;
+  /* Anclado al header (que es sticky), no a la ventana: asi sigue
+     bien colocado tanto con la barra superior visible como sin ella */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   background: #fff;
   border-bottom: 1px solid var(--line);
   padding: 18px 20px 26px;
@@ -730,4 +734,155 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 /* --- Pantallas grandes --- */
 @media (min-width: 1200px) {
   .container { padding: 0 32px; }
+}
+
+
+/* =========================================================
+   6. COMPONENTES PARA VENTA CONTRA ENTREGA (Chile)
+   Bloques añadidos para el mercado chileno. Van al final para
+   que se vea claro qué es del diseño base y qué es de esta
+   estrategia de venta.
+     6.1 Barra superior
+     6.2 Cómo funciona (3 pasos)
+     6.3 Precio tachado
+     6.4 Barra fija de compra en móvil
+     6.5 Botón de WhatsApp
+   ========================================================= */
+
+/* --- 6.1 Barra superior ------------------------------------
+   Lo primero que se lee. Aquí va el argumento de venta más
+   fuerte del contra entrega: que no pagas por adelantado.
+   ---------------------------------------------------------- */
+.topbar {
+  background: var(--ink);
+  color: rgba(255, 255, 255, .82);
+  font-size: .78rem;
+  padding: 9px 0;
+}
+.topbar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px 10px;
+  text-align: center;
+}
+.topbar__sep { color: rgba(255, 255, 255, .35); }
+
+
+/* --- 6.2 Cómo funciona -------------------------------------
+   Tres pasos numerados. Aquí la numeración sí significa algo:
+   es el orden real en que ocurren las cosas.
+   ---------------------------------------------------------- */
+.how {
+  list-style: none;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  counter-reset: paso;
+}
+.how__step {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+}
+.how__num {
+  display: grid;
+  place-content: center;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+}
+.how__step h3 { font-size: 1.14rem; margin-bottom: 8px; }
+.how__step p  { color: var(--ink-soft); font-size: .94rem; }
+
+
+/* --- 6.3 Precio tachado ------------------------------------
+   El precio anterior da referencia al actual. Solo funciona si
+   el precio tachado es real: inventarlo es publicidad engañosa.
+   ---------------------------------------------------------- */
+.price-block { display: flex; flex-direction: column; line-height: 1.15; }
+.price__old {
+  font-size: .84rem;
+  color: var(--ink-soft);
+  text-decoration: line-through;
+}
+
+
+/* --- 6.4 Barra fija de compra (solo móvil) -----------------
+   La mayoría del tráfico llega desde Instagram y TikTok, donde
+   se navega con una mano. Esto mantiene el botón siempre a la
+   vista sin tener que volver arriba.
+   ---------------------------------------------------------- */
+.sticky-cta {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 90;
+  display: none;                 /* se activa en el media query de abajo */
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, .96);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -6px 24px rgba(16, 18, 21, .10);
+  transform: translateY(110%);
+  transition: transform var(--transition);
+}
+.sticky-cta.is-visible { transform: none; }
+
+.sticky-cta__text { display: flex; flex-direction: column; line-height: 1.25; }
+.sticky-cta__text strong { font-family: var(--font-display); font-size: .95rem; }
+.sticky-cta__text span   { font-size: .76rem; color: var(--ink-soft); }
+
+
+/* --- 6.5 Botón de WhatsApp ---------------------------------
+   En Chile es el canal donde de verdad se cierran las ventas y
+   se confirman los pedidos antes de despachar.
+   ---------------------------------------------------------- */
+.whatsapp {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 95;
+  width: 54px; height: 54px;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, .38);
+  transition: transform var(--transition);
+}
+.whatsapp:hover { transform: scale(1.06); }
+.whatsapp svg { width: 28px; height: 28px; fill: #fff; }
+
+/* El atributo hidden del HTML tiene que ganar al display:grid */
+.whatsapp[hidden] { display: none; }
+
+
+/* --- Responsive de estos componentes ----------------------- */
+@media (max-width: 899px) {
+  .sticky-cta { display: flex; }
+
+  /* Subimos el botón de WhatsApp para que no tape la barra fija */
+  .whatsapp { bottom: calc(84px + env(safe-area-inset-bottom)); }
+}
+
+@media (min-width: 640px) {
+  .how { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* En móvil la barra superior parte en dos líneas: sin el separador
+   colgando al final de la primera, se lee mucho mejor */
+@media (max-width: 560px) {
+  .topbar__sep { display: none; }
+  .topbar__inner { flex-direction: column; gap: 2px; }
 }

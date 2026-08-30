@@ -36,6 +36,19 @@ const SHOPIFY = {
   }
 };
 
+/* ---------------------------------------------------------
+   0b. CONTACTO POR WHATSAPP
+
+   Pon tu número con código de país y sin signos ni espacios.
+   Chile: 56 + 9 + los ocho dígitos. Ejemplo: 56912345678
+
+   Mientras esté vacío, el botón flotante no se muestra.
+   --------------------------------------------------------- */
+const CONTACTO = {
+  whatsapp: '',   // ejemplo: '56912345678'
+  mensaje:  'Hola, quiero hacer un pedido de Numora'
+};
+
 // Busca los enlaces marcados con data-shopify en el HTML y les
 // pone la URL real del carrito de Shopify.
 //   data-shopify="whey"           -> 1 unidad de Whey Isolate
@@ -133,3 +146,42 @@ faqItems.forEach(item => {
     });
   });
 });
+
+
+/* ---------------------------------------------------------
+   4. BOTÓN DE WHATSAPP
+   Solo aparece si has puesto tu número arriba, en CONTACTO.
+   --------------------------------------------------------- */
+const btnWhatsapp = document.getElementById('whatsapp');
+
+if (CONTACTO.whatsapp) {
+  btnWhatsapp.href = 'https://wa.me/' + CONTACTO.whatsapp +
+                     '?text=' + encodeURIComponent(CONTACTO.mensaje);
+  btnWhatsapp.hidden = false;
+}
+
+
+/* ---------------------------------------------------------
+   5. BARRA FIJA DE COMPRA (móvil)
+
+   Aparece cuando el usuario ya ha pasado el hero, y se esconde
+   al llegar al CTA final: ahí ya hay un botón grande y no tiene
+   sentido tapar la pantalla con otro.
+   --------------------------------------------------------- */
+const stickyCta = document.getElementById('stickyCta');
+const ctaFinal  = document.getElementById('comprar');
+
+let ctaFinalALaVista = false;
+
+function actualizarBarraFija() {
+  const yaPasoElHero = window.scrollY > 500;
+  stickyCta.classList.toggle('is-visible', yaPasoElHero && !ctaFinalALaVista);
+}
+
+// Vigila si el CTA final está en pantalla
+new IntersectionObserver(entradas => {
+  ctaFinalALaVista = entradas[0].isIntersecting;
+  actualizarBarraFija();
+}).observe(ctaFinal);
+
+window.addEventListener('scroll', actualizarBarraFija, { passive: true });
