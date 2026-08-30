@@ -1,6 +1,8 @@
 /* =========================================================
    NUMORA — JavaScript
-   Solo tres comportamientos. Todo lo demás lo resuelve el CSS.
+   Configuración de Shopify + tres comportamientos.
+   Todo lo demás lo resuelve el CSS.
+     0. Enlaces de compra hacia el carrito de Shopify
      1. Menú móvil (abrir / cerrar)
      2. Header con borde al hacer scroll
      3. Aparición de elementos al entrar en pantalla
@@ -8,6 +10,47 @@
 
 // 'defer' no hace falta porque el <script> está al final del <body>:
 // para cuando se ejecuta, todo el HTML ya existe.
+
+/* ---------------------------------------------------------
+   0. CONEXIÓN CON SHOPIFY
+
+   Rellena estos 5 valores con los datos de tu tienda y los
+   botones "Comprar" pasarán a añadir el producto al carrito
+   y abrir el checkout de Shopify.
+
+   Mientras estén vacíos no pasa nada: los botones siguen
+   funcionando como hasta ahora (bajan a la sección de compra).
+
+   Dónde sacar el ID de variante: en el admin de Shopify entra
+   en el producto, pulsa la variante y mira el final de la URL:
+   .../products/8123456789012/variants/44012345678901
+                                       ^^^^^^^^^^^^^^ este
+   --------------------------------------------------------- */
+const SHOPIFY = {
+  dominio: '',          // ejemplo: 'numora-store.myshopify.com'
+  variantes: {
+    whey:     '',       // ejemplo: '44012345678901'
+    creatina: '',
+    greens:   '',
+    pack:     ''
+  }
+};
+
+// Busca los enlaces marcados con data-shopify en el HTML y les
+// pone la URL real del carrito de Shopify.
+//   data-shopify="whey"           -> 1 unidad de Whey Isolate
+//   data-shopify="whey,creatina"  -> varios productos de golpe
+document.querySelectorAll('[data-shopify]').forEach(enlace => {
+  const claves = enlace.dataset.shopify.split(',').map(c => c.trim());
+  const ids    = claves.map(c => SHOPIFY.variantes[c]);
+
+  // Si falta el dominio o algún ID, dejamos el botón como estaba
+  if (!SHOPIFY.dominio || ids.some(id => !id)) return;
+
+  enlace.href = 'https://' + SHOPIFY.dominio + '/cart/' +
+                ids.map(id => id + ':1').join(',');
+});
+
 
 
 /* ---------------------------------------------------------
