@@ -27,12 +27,12 @@
                                        ^^^^^^^^^^^^^^ este
    --------------------------------------------------------- */
 const SHOPIFY = {
-  dominio: '',          // ejemplo: 'numora-store.myshopify.com'
+  dominio: 'jjcknw-ff.myshopify.com',
   variantes: {
-    whey:     '',       // ejemplo: '44012345678901'
-    creatina: '',
-    greens:   '',
-    pack:     ''
+    whey:     '51677084451122',
+    creatina: '51677087465778',
+    greens:   '51677088809266',
+    pack:     '51677095133490'
   }
 };
 
@@ -45,7 +45,7 @@ const SHOPIFY = {
    Mientras esté vacío, el botón flotante no se muestra.
    --------------------------------------------------------- */
 const CONTACTO = {
-  whatsapp: '',   // ejemplo: '56912345678'
+  whatsapp: '56953166705',
   mensaje:  'Hola, quiero hacer un pedido de Numora'
 };
 
