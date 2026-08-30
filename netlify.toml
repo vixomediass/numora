@@ -5,21 +5,22 @@
   publish = "."
   command = "echo 'Numora — no build needed'"
 
-# Cachés: el navegador guarda estilos e imágenes durante 1 año
+# Cachés: CSS y JS se revalidan siempre (sus nombres no llevan hash,
+# así que un cambio tiene que llegar al instante). Las imágenes, 1 día.
 [[headers]]
   for = "/*.css"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=86400"
 
 # El HTML siempre se revisa (sin caché, para que cambios se vean ya)
 [[headers]]

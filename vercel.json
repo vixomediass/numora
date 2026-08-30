@@ -1,0 +1,28 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+
+  "headers": [
+    {
+      "comment": "HTML, CSS y JS siempre se revalidan. Los nombres de archivo no llevan hash, asi que si los cacheamos a largo plazo un cambio de precio no le llegaria a quien ya visito la web. La revalidacion devuelve un 304 vacio: es barata.",
+      "source": "/(.*)\\.(html|css|js)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "comment": "Las imagenes cambian poco y una version antigua no rompe nada: un dia de cache.",
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "comment": "Cabeceras de seguridad basicas.",
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
